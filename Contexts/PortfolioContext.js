@@ -34,9 +34,9 @@ export const PortfolioProvider = ({ children }) => {
     },
     {
       id: 4,
-      name: "Radio Player",
-      description: "Listen to the Swedish Radio in my app!",
-      image: "Sveriges-Radio.jpg",
+      name: "Zoom re-design",
+      description: "Here is my suggestion to re-design Zoom page!",
+      image: "Zoom.logo",
       url: "https://radioplayer-inky.vercel.app/",
     },
   ]);
