@@ -5,13 +5,15 @@ const PortfolioContext = createContext();
 export const PortfolioProvider = ({ children }) => {
   const [projects, setProjects] = useState([
     {
-      name: "Project 1",
-      description: "Project 1",
+      id: 1,
+      name: "Project Name ",
+      description: "Project description ",
       image: "Rectangle1.png",
     },
     {
-      name: "Project 2",
-      description: "Project 2",
+      id: 2,
+      name: "Project Name ",
+      description: "Project Description ",
       image: "Rectangle2.png",
       url: "https://www.google.com",
     },
@@ -19,12 +21,12 @@ export const PortfolioProvider = ({ children }) => {
 
   const [techSkills, setTechSkills] = useState([]);
 
-  const [newProject, setNewProject] = useState({
-    name: "",
-    description: "",
-    tech: "",
-    link: "",
-  });
+  // const [newProject, setNewProject] = useState({
+  //   name: "",
+  //   description: "",
+  //   tech: "",
+  //   link: "",
+  // });
 
   useEffect(() => {
     const storedProjects = localStorage.getItem("projects");
@@ -37,43 +39,27 @@ export const PortfolioProvider = ({ children }) => {
       setTechSkills(JSON.parse(storedTechSkills));
     } else {
       setTechSkills([
-        {
-          name: "Html 5",
-          src: "/html.png",
-        },
-        {
-          name: "Java Script",
-          src: "/javascript.png",
-        },
-        {
-          name: "React",
-          src: "/react.png",
-        },
+        { name: "Html 5", src: "/html.png" },
+        { name: "JS", src: "/javascript.png" },
+        { name: "React", src: "/react.png" },
+        { name: "Node.js", src: "/nodejs.png" },
+        { name: "CSS", src: "/css.png" },
+        { name: "Git Hub", src: "/github.png" },
       ]);
     }
   }, []);
+
   useEffect(() => {
-    if (projects.length > 0) {
-      localStorage.setItem("projects", JSON.stringify(projects));
-    }
+    localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
 
   useEffect(() => {
-    if (techSkills.length > 0) {
-      localStorage.setItem("techSkills", JSON.stringify(techSkills));
-    }
+    localStorage.setItem("techSkills", JSON.stringify(techSkills));
   }, [techSkills]);
 
-  function addProject() {
-    if (
-      !newProject.name.trim() ||
-      !newProject.description.trim() ||
-      !newProject.tech.trim()
-    )
-      return;
-
+  function addProject(newProject) {
     setProjects([...projects, { ...newProject, id: Date.now() }]);
-    setNewProject({ title: "", description: "", tech: "", link: "" });
+    // setNewProject({ name: "", description: "", tech: "", link: "" });
   }
 
   function deleteProject(id) {

@@ -14,11 +14,10 @@ export default function Admin() {
     addProject,
   } = useContext(PortfolioContext);
 
-  console.log("techSkills", techSkills);
 
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
 
   const [projectName, setProjectName] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
@@ -30,16 +29,16 @@ export default function Admin() {
 
   function handleCreateProject() {
     if (projectName && projectDescription && projectImage && projectUrl) {
+
       const newProject = {
-      
+        id: Date.now(), 
         name: projectName,
         description: projectDescription,
         image: projectImage,
         url: projectUrl,
       };
-      console.log(newProject);
-
-      setProjects([...projects, newProject]); 
+     
+      addProject(newProject);
       setProjectName("");
       setProjectDescription("");
       setProjectImage("");
@@ -47,7 +46,7 @@ export default function Admin() {
     }
   }
 
-  function updateDesciption(text, index) {
+  function updateDescription(text, index) {
     const updatedProjects = projects.map((project, i) => {
       if (i === index) {
         return {
@@ -55,12 +54,14 @@ export default function Admin() {
           description: text,
         };
       }
-      return project;
+      return project; 
     });
+  
     setProjects(updatedProjects);
   }
+  
 
-  const handleAddSkill = () => {
+  function handleAddSkill(){
     const newTechSkill = {
       name: skillText,
       alt: skillText,
@@ -70,75 +71,75 @@ export default function Admin() {
     addSkill(newTechSkill);
   };
 
-  function handleLogin() {
-    if (username === "Irene" && password === "HelloWorld") {
-      setLoggedIn(true);
-    } else {
-      alert("Invalid login");
-    }
-  }
-  if (!loggedIn) {
-    return (
-      <div className="min-h-screen bg-gray-200 flex items-center justify-center">
-        <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-          <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-            Login
-          </h2>
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div>
-              <label
-                htmlFor="username"
-                className="block text-gray-700 font-medium"
-              >
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter your username"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
+  // function handleLogin() {
+  //   if (username === "Irene" && password === "HelloWorld") {
+  //     setLoggedIn(true);
+  //   } else {
+  //     alert("Invalid login");
+  //   }
+  // }
+  // if (!loggedIn) {
+  //   return (
+  //     <div className="min-h-screen bg-gray-200 flex items-center justify-center">
+  //       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
+  //         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
+  //           Login
+  //         </h2>
+  //         <form onSubmit={handleLogin} className="space-y-6">
+  //           <div>
+  //             <label
+  //               htmlFor="username"
+  //               className="block text-gray-700 font-medium"
+  //             >
+  //               Username
+  //             </label>
+  //             <input
+  //               type="text"
+  //               id="username"
+  //               name="username"
+  //               value={username}
+  //               onChange={(e) => setUsername(e.target.value)}
+  //               placeholder="Enter your username"
+  //               className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  //             />
+  //           </div>
 
-            {/* Password Input */}
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-gray-700 font-medium"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
+          
+  //           <div>
+  //             <label
+  //               htmlFor="password"
+  //               className="block text-gray-700 font-medium"
+  //             >
+  //               Password
+  //             </label>
+  //             <input
+  //               type="password"
+  //               id="password"
+  //               name="password"
+  //               value={password}
+  //               onChange={(e) => setPassword(e.target.value)}
+  //               placeholder="Enter your password"
+  //               className="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  //             />
+  //           </div>
 
-            {/* Botón de Login */}
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-500 transition"
-              >
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
-  }
+           
+  //           <div className="flex justify-center">
+  //             <button
+  //               type="submit"
+  //               className="w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-500 transition"
+  //             >
+  //               Login
+  //             </button>
+  //           </div>
+  //         </form>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="bg-slate-800 container mx-auto p-6">
+    <div className="bg-slate-800 w-full h-screen">
       <h1 className="text-4xl font-bold text-white text-center mb-6">
         Admin Panel
       </h1>
@@ -156,7 +157,7 @@ export default function Admin() {
               className="w-full p-3 mt-1 border border-gray-300 rounded-md"
             />
           </div>
-          <div>
+          <div className="block text-sm font-medium text-gray-700">
             <label className="block text-sm font-medium text-gray-700">
               Description
             </label>
@@ -197,39 +198,41 @@ export default function Admin() {
         </button>
       </div>
      
-      console.log(projects)
-      {projects.map((project) => (
+     
+      {projects.map((project, index) => (
         <div
           key={project.id}
-          className="flex flex-col items-center bg-gray-800 p-5 rounded-lg shadow-md"
+          className="flex items-center bg-gray-800 p-5 rounded-lg shadow-md"
         >
           <h3 className="text-white p-2">{project.name}</h3>
           <p>
             <input
               type="text"
               value={project.description}
-              onChange={(e) => updateDesciption(e.target.value, index)}
-              className="border p-2 rounded w-full"
+              onChange={(e) => updateDescription(e.target.value, index)}
+              className="text-black border p-2 rounded w-full"
             />
           </p>
           <img
             src={project.image}
             alt={project.name}
-            className="w-40 h-40 object-cover rounded-md mt-2"
+            className="w-40 h-40 object-cover rounded-md mt-2 p-6"
           />
-          <a className="text-white mt-2" href={project.url}>
+          <a className="text-white mt-2 p-6" href={project.url}>
             Link
           </a>
           <button
-            onClick={() => deleteProject(project.id)} // Pasar el id correcto
+            onClick={() => deleteProject(project.id)} 
             className="bg-red-500 text-white px-3 py-1 rounded mt-2 hover:bg-red-700 transition"
           >
             Delete
           </button>
         </div>
       ))}
-      <h2 className="text-2xl text-white font-semibold mb-4">Tech Skills</h2>
-      <div className="mb-4">
+      <div className="bg-slate-400 p-6 m-0">
+      <div className="bg-slate-400 p-6 m-0">
+      <h2 className="text-2xl text-black font-semibold mb-4">Tech Skills</h2>
+      <div clasName="bg-slate-400 w-full p-6">
         <input
           type="text"
           value={skillText}
@@ -250,6 +253,8 @@ export default function Admin() {
         >
           Add Skill
         </button>
+      </div>
+      </div>
       </div>
       <ul>
         {techSkills.map((skill, index) => (
