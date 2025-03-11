@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import PortfolioContext from "@/Contexts/PortfolioContext"; 
+import PortfolioContext from "@/Contexts/PortfolioContext";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,7 +7,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 relative">
-    
       <Link
         href="/admin"
         className="absolute top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-500 transition z-50"
@@ -23,13 +22,14 @@ export default function Home() {
             className="w-40 h-40 mx-auto rounded-full border-4 border-white object-cover aspect-square"
           />
           <h1 className="text-4xl font-bold mt-4">¡Hello, I am Irene!</h1>
-          <p className="text-lg mt-2">Frontend Developer with Backend and UX/UI skills</p>
+          <p className="text-lg mt-2">
+            Frontend Developer with Backend and UX/UI skills
+          </p>
         </div>
       </section>
 
-   
       <section className="py-20 bg-slate-200">
-        <h2 className="text-2xl font-bold text-center">Tech Stack</h2>
+        <h2 className="text-2xl font-bold text-center"> My Tech Stack</h2>
         <div className="flex justify-center gap-6 mt-6 flex-wrap">
           {techSkills.map((skill, index) => {
             return (
@@ -45,7 +45,9 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-gray-100 min-h-screen py-10">
-        <h2 className="text-white text-xl font-bold">My Projects</h2>
+        <h2 className="text-slate-800 text-2xl text-center font-bold">
+          My Projects
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-6">
           {projects.map((project) => (
             <div
@@ -60,7 +62,11 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Project →
+                <img
+                  className="h-100 w-100 p-4"
+                  src={project.image}
+                  alt={project.alt}
+                />
               </a>
             </div>
           ))}
