@@ -32,6 +32,13 @@ export const PortfolioProvider = ({ children }) => {
       image: "Sveriges-Radio.jpg",
       url: "https://radioplayer-inky.vercel.app/",
     },
+    {
+      id: 4,
+      name: "Radio Player",
+      description: "Listen to the Swedish Radio in my app!",
+      image: "Sveriges-Radio.jpg",
+      url: "https://radioplayer-inky.vercel.app/",
+    },
   ]);
 
   const [techSkills, setTechSkills] = useState([
