@@ -23,7 +23,7 @@ export const PortfolioProvider = ({ children }) => {
       name: "Gemini AI app",
       description: "Try Gemini AI with our App!",
       image: "Gemini2.jpg",
-      url: "https://gemini-project-sand.vercel.app/",
+      url: "",
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ export const PortfolioProvider = ({ children }) => {
       id: 4,
       name: "Zoom re-design",
       description: "Here is my suggestion to re-design Zoom page!",
-      image: "Zoom.logo",
+      image: "Zoom-logo.png",
       url: "https://radioplayer-inky.vercel.app/",
     },
   ]);
