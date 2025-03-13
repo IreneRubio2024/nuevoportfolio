@@ -36,7 +36,7 @@ export const PortfolioProvider = ({ children }) => {
       id: 4,
       name: "Zoom re-design",
       description: "Here is my suggestion to re-design Zoom page!",
-      image: "Zoom-logo.png",
+      image: "Zoom-Logo.png",
       url: "https://radioplayer-inky.vercel.app/",
     },
   ]);
