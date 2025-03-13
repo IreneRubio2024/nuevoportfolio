@@ -16,14 +16,14 @@ export const PortfolioProvider = ({ children }) => {
       name: "Oscar's 2025 Quiz",
       description: " Try your knowledge about the Oscar's 2025!",
       image: "Oscars.webp",
-      url: "https://oscar-quiz-site.vercel.app/",
+      url: "https://quiz-seven-omega-89.vercel.app/",
     },
     {
       id: 3,
       name: "Gemini AI app",
       description: "Try Gemini AI with our App!",
       image: "Gemini2.jpg",
-      url: "",
+      url: "https://gemini-project-rho.vercel.app/",
     },
     {
       id: 4,
